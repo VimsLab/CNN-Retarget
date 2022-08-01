@@ -12,7 +12,7 @@ Visit the [ImageCLEF2013](https://www.imageclef.org/2013), [ImageCLEF2015](https
 python train.py
 ```
 
-## tested
+## Test
 ```
 python test.py
 ```
