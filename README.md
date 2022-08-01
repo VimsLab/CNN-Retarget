@@ -39,3 +39,16 @@ python train.py
 ```
 python test.py
 ```
+
+## Citation
+If you found this work helpful for your research, please consider citing us.
+```
+@inproceedings{singh2020feature,
+  title={Feature Map Retargeting to Classify Biomedical Journal Figures},
+  author={Singh, Vinit Veerendraveer and Kambhamettu, Chandra},
+  booktitle={International Symposium on Visual Computing},
+  pages={728--741},
+  year={2020},
+  organization={Springer}
+}
+```
