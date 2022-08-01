@@ -1,4 +1,4 @@
-# Feature-Map-Retargeting
+# Feature Map Retargeting
 Official TensorFlow implementation for [Feature Map Retargeting to Classify Biomedical Journal Figures
 ](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8635419/). The code has been implemented and tested on the Ubuntu operating system only.
 
