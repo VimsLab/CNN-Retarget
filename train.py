@@ -16,7 +16,7 @@ from tensorflow.keras.utils import plot_model
 #Load configuration file. Configuration file contains paths to other directories
 pth_config = './config'
 with open(os.path.join(pth_config, 'clef.yml'), 'r') as config_fl:
-    config = yaml.load(config_fl)
+    config = yaml.safe_load(config_fl)
 pth_data = config['pth_data']
 pth_utils = config['pth_utils']
 pth_models = config['pth_models']
@@ -77,20 +77,20 @@ if __name__ == '__main__':
     sec = str(datetime.now().time().second)
 
     if not os.path.exists(os.path.join(pth_hist, date)):
-        os.mkdir(os.path.join(pth_hist, date))
-        os.mkdir(os.path.join(pth_weights, date))
-        os.mkdir(os.path.join(pth_visual, date))
+        os.makedirs(os.path.join(pth_hist, date))
+        os.makedirs(os.path.join(pth_weights, date))
+        os.makedirs(os.path.join(pth_visual, date))
 
     HISTORY = os.path.join(os.path.join(pth_hist, date), hour+minute+sec)
-    os.mkdir(HISTORY)
+    os.makedirs(HISTORY)
     print('Model Summary and training history for this run saved at: {0}'.format(HISTORY))
 
     WEIGHTS = os.path.join(os.path.join(pth_weights, date), hour+minute+sec)
-    os.mkdir(WEIGHTS)
+    os.makedirs(WEIGHTS)
     print('Model weights for this run saved at: {0}'.format(WEIGHTS))
 
     VISUAL = os.path.join(os.path.join(pth_visual, date), hour+minute+sec)
-    os.mkdir(VISUAL)
+    os.makedirs(VISUAL)
     print('Visualizations for this run must be saved at: {0}'.format(VISUAL))
 
     #Load and compile model

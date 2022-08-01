@@ -1,0 +1,16 @@
+pth_data: datasets/ImageCLEF13
+pth_utils: utils
+pth_models: models
+pth_weights: weights
+pth_hist: history
+pth_visual: visual
+run_on_gpu: 0
+batch_size: 32
+classes: 31
+nw_img_cols: 224
+nw_img_rows: 224
+backbone: DenseNet
+att_type: Retarget
+ip_img_cols: 256
+ip_img_rows: 256
+epochs: 25

@@ -11,7 +11,7 @@ import tensorflow.keras.backend as K
 
 pth_config = './config'
 with open(os.path.join(pth_config, 'clef.yml'), 'r') as config_fl:
-    config = yaml.load(config_fl)
+    config = yaml.safe_load(config_fl)
 pth_data = config['pth_data']
 pth_utils = config['pth_utils']
 pth_models = config['pth_models']
@@ -64,7 +64,7 @@ if __name__ == '__main__':
             pooling='avg',
             classes=classes,
             pth_hist='',
-            batch_size=12,
+            batch_size=2,
             att_type=att_type
         )
         preprocess_input = preprocess_input_densenet
@@ -76,7 +76,7 @@ if __name__ == '__main__':
             pooling='avg',
             classes=classes,
             pth_hist='',
-            batch_size=12,
+            batch_size=2,
             att_type=att_type
         )
         preprocess_input = preprocess_input_resnet
@@ -85,7 +85,7 @@ if __name__ == '__main__':
                             weights=None,
                             input_shape=(nw_img_rows, nw_img_cols, 3),
                             classes=classes,
-                            batch_size=12,
+                            batch_size=2,
                             pooling='avg',
                             att_type=att_type)
         preprocess_input = preprocess_input_inception
@@ -104,9 +104,9 @@ if __name__ == '__main__':
     # #2013 + DenseNet + 4
     # weight_name = '/media/jakep/Bio-Imaging VR/ImageCLEF2013_weights/2020-08-23/18320'#183120'
 
-    weight_name = '/media/jakep/Bio-Imaging VR/ImageCLEF2013_weights/2020-08-25/122258'
+    weight_name = 'weights/2022-07-31/225913'
 
-    model.load_weights(os.path.join(os.path.join(weight_name,'cp-0030.ckpt')))
+    model.load_weights(os.path.join(os.path.join(weight_name,'cp-0005.ckpt')))
 
     #Load data for test
     ip_img_cols = config['ip_img_cols']
@@ -119,7 +119,7 @@ if __name__ == '__main__':
         in_dir=TEST,
         preprocessing_function=preprocess_input,
         target_size=(ip_img_rows, ip_img_cols),
-        batch_size=12,
+        batch_size=2,
         horizontal_flip=False,
         shuffle=False
     )
@@ -127,7 +127,7 @@ if __name__ == '__main__':
     true_classes = test_gen.classes
     class_labels = list(test_gen.class_indices.keys())
 
-    test_gen = center_crop(test_gen, ip_img_rows, ip_img_cols, nw_img_cols, 2)
+    test_gen = center_crop(test_gen, ip_img_rows, ip_img_cols, nw_img_cols, 2, discard_end=True)
     # predict = model.evaluate(test_gen, steps=steps, verbose=1)
 
     predict = model.predict(test_gen, steps=steps, verbose=1)

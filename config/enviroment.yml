@@ -1,4 +1,4 @@
-name: document
+name: Retarget
 channels:
 - default
 dependencies:
@@ -6,3 +6,6 @@ dependencies:
 - pip
 - numpy
 - matplotlib
+- pyyaml
+- pydot
+- scikit-learn
