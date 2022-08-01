@@ -25,6 +25,8 @@ The datasets follow the directory structure below:
 ├── datasets
 │   ├── ImageCLEF13
 │   |   ├── train
+│   |   |   ├── category 1
+│   |   |   ├── category 2
 │   |   ├── test
 │   ├── ImageCLEF15
 │   ├── ImageCLEF16
