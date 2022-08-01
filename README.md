@@ -7,6 +7,16 @@ Official TensorFlow implementation for [Feature Map Retargeting to Classify Biom
 ## Dataset
 Visit the [ImageCLEF2013](https://www.imageclef.org/2013), [ImageCLEF2015](https://www.imageclef.org/2015), and [ImageCLEF2016](https://www.imageclef.org/2016) websites to register and download the datasets.
 
+The datasets follow the directory structure below:
+```
+├── datasets
+│   ├── ImageCLEF13
+│   |   ├── train
+│   |   ├── test
+│   ├── ImageCLEF15
+│   ├── ImageCLEF16
+```
+
 ## Train
 ```
 python train.py
